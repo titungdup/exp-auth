@@ -1,0 +1,15 @@
+services:
+  db:
+    container_name: exp-auth-db
+    image: postgres:16.4
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=exp-auth
+    ports:
+      - 5432:5432
+    restart: always
+    volumes:
+      - postgres-exp-auth:/var/lib/postgresql/data
+volumes:
+  postgres-exp-auth:
